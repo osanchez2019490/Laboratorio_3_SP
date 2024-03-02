@@ -22,4 +22,4 @@ const PublicationSchema = mongoose.Schema({
     }
 })
 
-export default mongoose.model('Publication', PublicationSchema)
+export default mongoose.model('Publication', PublicationSchema);
