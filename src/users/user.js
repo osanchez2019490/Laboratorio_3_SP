@@ -23,7 +23,12 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true,
         enum: ["USER_ROLE"]
+    },
+    state: {
+        type: Boolean,
+        default: true
     }
+
 })
 
 
