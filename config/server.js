@@ -5,12 +5,13 @@ import helmet from "helmet";
 import cors from "cors";
 import { dbConnection } from "./config.js";
 import morgan from "morgan";
+import userRourtes from '../src/users/user.routes.js';
 
 class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
-        
+        this.userPath = '/opinionManager/v1/user'
 
 
         this.conectarDB();
@@ -31,7 +32,7 @@ class Server{
     }
 
     routes(){
-        
+        this.app.use(this.userPath, userRourtes);
     }
 
     listen(){
