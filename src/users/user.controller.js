@@ -3,8 +3,8 @@ import bcrypt from 'bcrypt';
 import User from './user.js';
 
 export const userPost = async (req, res) => {
-    const { role, password, name, username} = req.body;
-    const user = new User({role, password, name, username});
+    const { role, password, name, username, email} = req.body;
+    const user = new User({role, password, name, username, email});
 
     const salt = bcrypt.genSaltSync();
     user.password = bcrypt.hashSync(password, salt);
