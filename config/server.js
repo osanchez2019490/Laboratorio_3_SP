@@ -6,12 +6,14 @@ import cors from "cors";
 import { dbConnection } from "./config.js";
 import morgan from "morgan";
 import userRourtes from '../src/users/user.routes.js';
+import authRouter from '../src/auth/auth.routes.js';
 
 class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
         this.userPath = '/opinionManager/v1/user'
+        this.authPath = '/opinionManager/v1/auth'
 
 
         this.conectarDB();
@@ -33,6 +35,7 @@ class Server{
 
     routes(){
         this.app.use(this.userPath, userRourtes);
+        this.app.use(this.authPath, authRouter)
     }
 
     listen(){
