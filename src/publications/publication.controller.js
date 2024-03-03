@@ -50,6 +50,10 @@ export const publicationGet = async(req, res) =>{
         Publication.countDocuments(query),
         Publication.find(query)
         .skip(Number(from))
+        .populate({
+            path: 'comment',
+            match: {state: true}
+        })
         .limit(Number(limit))
     ])
 
