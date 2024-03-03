@@ -1,10 +1,12 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { publicationPost } from "./publication.controller.js";
+import { publicationGet, publicationPost } from "./publication.controller.js";
 import { validationFields } from "../middlewares/validateFields.js";
 import { validateJWT } from "../middlewares/validateJWT.js";
 
 const router = Router();
+
+router.get("/", [validateJWT], publicationGet);
 
 router.post(
     "/",
@@ -16,4 +18,12 @@ router.post(
     validationFields
     ],publicationPost);
 
+router.put(
+    "/:id",
+    [
+        validateJWT,
+        check("id", "it is not id validit").isMongoId(),
+        check("id").custom(existingById),
+    ]
+)
 export default router;
