@@ -61,7 +61,7 @@ export const publicationGet = async(req, res) =>{
 
 export const putPublication = async(req, res = response) => {
     const { id } = req.params;
-    const {_id, author, comment, ...resto} = req.body;
+    const {_id, author, comment, category, ...resto} = req.body;
     const token = req.header('x-token');
 
     const decoded = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
@@ -75,28 +75,27 @@ export const putPublication = async(req, res = response) => {
         })
     }
 
-    const publication = await Publication.findById(id);
+    const publicationBefore  = await Publication.findById(id);
 
     
-    if(!publication){
+    if(!publicationBefore){
         return res.status(400).json({
             msg: 'publication not found'
         })
     }
 
-    if(publication.author !== user.name){
+    if(publicationBefore.author !== user.name){
         return res.status(403).json({
             msg: 'publication not found'
         })
     }
 
-    const publicationAfter = req.publication;
-    const publicationUpdate = await Publication.findByIdAndUpdate(id);
+    const publicationUpdate = await Publication.findByIdAndUpdate(id, resto, {new: true});
 
     res.status(200).json({
         msg: "The update was correct",
         publication: publicationUpdate,
-        publicationAfter
+        publicationBefore 
     })
 
 }

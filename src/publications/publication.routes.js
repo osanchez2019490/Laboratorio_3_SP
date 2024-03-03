@@ -1,8 +1,9 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { publicationGet, publicationPost } from "./publication.controller.js";
+import { publicationGet, publicationPost, putPublication } from "./publication.controller.js";
 import { validationFields } from "../middlewares/validateFields.js";
 import { validateJWT } from "../middlewares/validateJWT.js";
+import {  existingByIdPublication } from "../helpers/db-validator.js";
 
 const router = Router();
 
@@ -23,7 +24,7 @@ router.put(
     [
         validateJWT,
         check("id", "it is not id validit").isMongoId(),
-        check("id").custom(existingById),
-    ]
-)
+        check("id").custom(existingByIdPublication),
+        validationFields
+    ], putPublication)
 export default router;

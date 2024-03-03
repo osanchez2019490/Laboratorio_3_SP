@@ -1,3 +1,4 @@
+import Publication from '../publications/publication.js';
 import User from '../users/user.js';
 
 export const existingEmail = async(email= '') => {
@@ -16,6 +17,14 @@ export const existingUsername = async(username = '') => {
 
 export const existingById = async(id = '') =>{
     const existingById = await User.findOne({id});
+    if(existingById){
+        throw new Error(`The id ${id} does  exist in the database`);
+    }
+}
+
+
+export const existingByIdPublication = async(id = '') =>{
+    const existingById = await Publication.findOne({id});
     if(existingById){
         throw new Error(`The id ${id} does  exist in the database`);
     }
