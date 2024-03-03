@@ -43,7 +43,7 @@ export const commentPost = async (req, res) =>{
 
 export const commentPut = async(req, res = response) =>{
     const { id } = req.params;
-    const { _id, username, publication,state, comment} = req.body;
+    const { comment } = req.body;
     const token = req.header('x-token');
 
     const decoded = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
@@ -57,5 +57,64 @@ export const commentPut = async(req, res = response) =>{
         })
     }
 
-    const commentBefore = await
+    const commentBefore = await Comment.findById(id);
+
+    if(!commentBefore){
+        return res.status(400).json({
+            msg: 'publication not found'
+        })
+    }
+
+    if(commentBefore.username !== user.username){
+        return res.status(403).json({
+            msg: 'Username not found'
+        })
+    }
+
+    const commentUpdate = await Comment.findByIdAndUpdate(id, { comment: comment }, { new: true });
+
+    res.status(200).json({
+        msg: "The update was correct",
+        comment: commentUpdate,
+        commentBefore
+    })
+
+}
+
+export const commentDelete = async(req, res) => {
+    const { id } = req.params;
+    const token = req.header('x-token');
+    
+    const decoded = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+    const userId = decoded.uid;
+
+    const user = await User.findById(userId);
+
+    if(!user){
+        return res.status(400).json({
+            msg: 'User not found'
+        })
+    }
+
+    const commentBefore = await Comment.findById(id);
+
+    if(!commentBefore){
+        return res.status(400).json({
+            msg: 'publication not found'
+        })
+    }
+
+    if(commentBefore.username !== user.username){
+        return res.status(403).json({
+            msg: 'Username not found'
+        })
+    }
+
+    const commentUpdate = await Comment.findByIdAndUpdate(id, {state: false}, {new: true});
+
+    res.status(200).json({
+        msg: "The update was correct",
+        comment: commentUpdate,
+        commentBefore
+    })
 }

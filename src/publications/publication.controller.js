@@ -86,7 +86,7 @@ export const putPublication = async(req, res = response) => {
 
     if(publicationBefore.author !== user.name){
         return res.status(403).json({
-            msg: 'publication not found'
+            msg: 'Author not found'
         })
     }
 
