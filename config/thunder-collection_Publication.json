@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Publication",
-    "dateExported": "2024-03-03T20:49:32.620Z",
+    "dateExported": "2024-03-03T22:13:01.577Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,7 +14,7 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-03T00:49:32.251Z",
-            "modified": "2024-03-03T20:46:22.608Z",
+            "modified": "2024-03-03T22:04:05.535Z",
             "headers": [
                 {
                     "name": "x-token",
@@ -24,7 +24,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"author\": \"Omar\",\n  \"title\": \"XD\",\n  \"category\": \"Deportivo\",\n  \"text\": \"ASDPLAJMDklSANMfkjlASNMFKÑ:ANMFKLAS\"\n}",
+                "raw": "{\n  \"title\": \"LOL\",\n  \"category\": \"Deportivo\",\n  \"text\": \"ASDPLAJMDklSANMfkjlASNMFKÑ:ANMFKLAS\"\n}",
                 "form": []
             },
             "tests": []
