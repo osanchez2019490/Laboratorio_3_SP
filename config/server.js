@@ -8,6 +8,7 @@ import morgan from "morgan";
 import userRourtes from '../src/users/user.routes.js';
 import authRouter from '../src/auth/auth.routes.js';
 import publicationRouters from '../src/publications/publication.routes.js';
+import commentRouters from '../src/comments/comment.routes.js';
 
 class Server{
     constructor(){
@@ -16,6 +17,7 @@ class Server{
         this.userPath = '/opinionManager/v1/user'
         this.authPath = '/opinionManager/v1/auth'
         this.publicationPath = '/opinionManager/v1/publication'
+        this.commentPath = '/opinionManager/v1/comment'
 
         this.conectarDB();
         this.middlware();
@@ -38,6 +40,7 @@ class Server{
         this.app.use(this.userPath, userRourtes);
         this.app.use(this.authPath, authRouter);
         this.app.use(this.publicationPath, publicationRouters);
+        this.app.use(this.commentPath, commentRouters);
     }
 
     listen(){
