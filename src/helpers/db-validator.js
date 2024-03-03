@@ -13,3 +13,10 @@ export const existingUsername = async(username = '') => {
         throw new Error(`The username ${username} does exist in the database`);
     }
 }
+
+export const existingById = async(id = '') =>{
+    const existingById = await User.findOne({id});
+    if(existingById){
+        throw new Error(`The id ${id} does  exist in the database`);
+    }
+}

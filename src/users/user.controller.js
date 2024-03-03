@@ -1,6 +1,7 @@
 import { response, request } from "express";
 import bcrypt from 'bcrypt';
 import User from './user.js';
+import jwt from 'jsonwebtoken';
 
 export const userPost = async (req, res) => {
     const { role, password, name, username, email} = req.body;
@@ -35,7 +36,7 @@ export const putUser = async (req, res = response) => {
 
     if(password){
         const user = await User.findById(id);
-        const validarPassword = bcrypt.compareSync(password, user);
+        const validarPassword = bcrypt.compareSync(password, user.password);
 
         if(!validarPassword){
             return res.status(400).json({ msg: 'The password after is incorrect'});
