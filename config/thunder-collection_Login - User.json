@@ -1,0 +1,28 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Login - User",
+    "dateExported": "2024-03-03T20:49:21.838Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "24ebfb07-2ee7-4b4d-a81f-f6a04da138a1",
+            "colId": "dd3a96d2-0829-43aa-9257-c1af9d3a2f1a",
+            "containerId": "",
+            "name": "post_Login",
+            "url": "http://localhost:8080/opinionManager/v1/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-02T21:53:30.377Z",
+            "modified": "2024-03-03T20:46:15.193Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"osanchez\",\n  \"email\": \"\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

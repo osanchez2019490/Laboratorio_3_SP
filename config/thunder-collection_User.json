@@ -1,0 +1,33 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "User",
+    "dateExported": "2024-03-03T20:49:28.527Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "74bd77cd-92bc-477e-a452-ec9cfd8ee85a",
+            "colId": "49518a13-c5bf-43e0-883b-3402843e1c2f",
+            "containerId": "",
+            "name": "put_User",
+            "url": "http://localhost:8080/opinionManager/v1/user/65e38fe9a921c706f73a0be6",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-03-03T00:01:20.775Z",
+            "modified": "2024-03-03T19:33:07.523Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzOGZlOWE5MjFjNzA2ZjczYTBiZTYiLCJpYXQiOjE3MDk0MjUyNDQsImV4cCI6MTcwOTQzMjQ0NH0.O6GsD9okhxqNzZJ_PmBUC4Ng1l0WSyi24mXmTTcqWQI"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Omar\",\n  \"username\": \"omendoza\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

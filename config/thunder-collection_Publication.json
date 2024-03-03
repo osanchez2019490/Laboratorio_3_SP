@@ -1,0 +1,95 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Publication",
+    "dateExported": "2024-03-03T20:49:32.620Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "6c10f0d0-18fb-48e5-ba9b-d346c3c498f4",
+            "colId": "3adf46af-ef6e-4353-b27f-3170caa5dac6",
+            "containerId": "",
+            "name": "post_Publication",
+            "url": "http://localhost:8080/opinionManager/v1/publication",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-03T00:49:32.251Z",
+            "modified": "2024-03-03T20:46:22.608Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU0ZTE5MGE2ZDE5ZTc2OTIwNjJiOGIiLCJpYXQiOjE3MDk0OTg3NzUsImV4cCI6MTcwOTUwNTk3NX0.7KSxAS_l867bI_CK2GqbZAODh4VKHgmvi9AE5hWPTQI"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"author\": \"Omar\",\n  \"title\": \"XD\",\n  \"category\": \"Deportivo\",\n  \"text\": \"ASDPLAJMDklSANMfkjlASNMFKÑ:ANMFKLAS\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "db02b37f-34fe-4771-a0fe-72d606f55deb",
+            "colId": "3adf46af-ef6e-4353-b27f-3170caa5dac6",
+            "containerId": "",
+            "name": "get_Publication",
+            "url": "http://localhost:8080/opinionManager/v1/publication",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-03T19:19:37.560Z",
+            "modified": "2024-03-03T20:46:27.091Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU0ZTE5MGE2ZDE5ZTc2OTIwNjJiOGIiLCJpYXQiOjE3MDk0OTg3NzUsImV4cCI6MTcwOTUwNTk3NX0.7KSxAS_l867bI_CK2GqbZAODh4VKHgmvi9AE5hWPTQI"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3ad42054-a08f-4f7f-8b08-d55ab864d086",
+            "colId": "3adf46af-ef6e-4353-b27f-3170caa5dac6",
+            "containerId": "",
+            "name": "put_Publication",
+            "url": "http://localhost:8080/opinionManager/v1/publication/65e3cb99de124a7d09a6642c",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-03T20:02:21.411Z",
+            "modified": "2024-03-03T20:09:42.955Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUzOGZlOWE5MjFjNzA2ZjczYTBiZTYiLCJpYXQiOjE3MDk0OTYyNDIsImV4cCI6MTcwOTUwMzQ0Mn0.iVgd2bLBH1PK7kDVMGN4UF8qDfSf4HZ0pNyPltln5XY"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"XD\",\n  \"text\": \"XD\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3d2d8eec-aed2-4e38-ab1a-0da86b36d8cd",
+            "colId": "3adf46af-ef6e-4353-b27f-3170caa5dac6",
+            "containerId": "",
+            "name": "delete_Publication",
+            "url": "http://localhost:8080/opinionManager/v1/publication/65e4e19ea6d19e7692062b8f",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-03T20:42:50.645Z",
+            "modified": "2024-03-03T20:46:54.421Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU0ZTE5MGE2ZDE5ZTc2OTIwNjJiOGIiLCJpYXQiOjE3MDk0OTg3NzUsImV4cCI6MTcwOTUwNTk3NX0.7KSxAS_l867bI_CK2GqbZAODh4VKHgmvi9AE5hWPTQI"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

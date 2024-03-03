@@ -99,3 +99,43 @@ export const putPublication = async(req, res = response) => {
     })
 
 }
+
+export const deletePublication = async(req, res) =>{
+    const { id } = req.params;
+    const token = req.header('x-token');
+
+    const decoded = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+    const userId = decoded.uid;
+
+    const user = await User.findById(userId);
+
+    if(!user){
+        return res.status(400).json({
+            msg: 'User not found'
+        })
+    }
+
+    const publicationBefore  = await Publication.findById(id);
+
+    if(!publicationBefore){
+        return res.status(400).json({
+            msg: 'publication not found'
+        })
+    }
+
+    if(publicationBefore.author !== user.name){
+        return res.status(403).json({
+            msg: 'publication not found'
+        })
+    }
+
+    const publicationUpdate = await Publication.findByIdAndUpdate(id, {state: false}, {new: true});
+
+    res.status(200).json({
+        msg: "The delete was correct",
+        publication: publicationUpdate,
+        publicationBefore 
+    })
+
+
+}
