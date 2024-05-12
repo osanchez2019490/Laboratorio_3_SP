@@ -1,7 +1,6 @@
 import { response, request } from "express";
 import Publication from "./publication.js";
-import User from "../users/user.js";
-import  jwt from 'jsonwebtoken';
+
 
 
 export const publicationPost = async(req, res) =>{

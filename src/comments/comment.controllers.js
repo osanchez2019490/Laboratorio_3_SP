@@ -5,7 +5,7 @@ import Comment from './comment.js';
 import  jwt from 'jsonwebtoken';
 
 export const commentPost = async (req, res) =>{
-    const { user, publication, comment } = req.body;
+    const { username , publication, comment } = req.body;
     
 
     const publicationModel = await Publication.findOne({title: publication});
@@ -15,7 +15,7 @@ export const commentPost = async (req, res) =>{
         return res.status(404).json({ msg: 'Publication not found' });
     }
 
-    const newComment = new Comment({publication: publicationModel.title, comment});
+    const newComment = new Comment({publication: publicationModel.title, comment, username});
 
 
     await newComment.save();
