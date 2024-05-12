@@ -12,6 +12,9 @@ router.get("/", [validateJWT], publicationGet);
 router.post(
     "/",
     [ 
+        check ("author", "The author is required").not().isEmpty(),
+        check ("urlImage", "The author is required").not().isEmpty(),
+        check ("urlProyect", "The author is required").not().isEmpty(),
         check ("title", "The title is required").not().isEmpty(),
         check ("category", "The category is required").not().isEmpty(),
         check ("text", "The text is required").not().isEmpty(),

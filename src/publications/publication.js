@@ -12,15 +12,21 @@ const PublicationSchema = mongoose.Schema({
         required: [true, 'The title of the text is mandatory']
     },
     
-    category:{
+    urlImage:{
         type: String,
-        required: [true, 'The category is mandatory']
+        required: [true, 'The image is mandatory']
     },
 
     text: {
         type: String,
         required: [true, 'The main text is mandatory']
     },
+
+    urlProyect:{
+        type: String,
+        required: [true, 'The image is mandatory']
+    },
+
     comment: {
         type: Schema.ObjectId,
         ref: 'Comment'

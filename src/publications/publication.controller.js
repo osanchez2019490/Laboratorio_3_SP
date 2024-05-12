@@ -5,8 +5,8 @@ import  jwt from 'jsonwebtoken';
 
 
 export const publicationPost = async(req, res) =>{
-    const {author, title, category, text} = req.body;
-    const publication = new Publication({ author, title, category, text});
+    const {author, title, category, text, urlImage, urlProyect } = req.body;
+    const publication = new Publication({ author, title, category, text, urlImage, urlProyect});
 
     await publication.save();
 
