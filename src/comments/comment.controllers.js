@@ -5,21 +5,11 @@ import Comment from './comment.js';
 import  jwt from 'jsonwebtoken';
 
 export const commentPost = async (req, res) =>{
-    const { publication, comment } = req.body;
-    const token = req.header('x-token');
+    const { user, publication, comment } = req.body;
     
-    const decoded = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
-    const userId = decoded.uid;
 
     const publicationModel = await Publication.findOne({title: publication});
-    const user = await User.findById(userId);
-
-    if(!user){
-        return res.status(400).json({
-            msg: 'User no found'
-        })
-    }
-
+  
 
     if (!publication) {
         return res.status(404).json({ msg: 'Publication not found' });
@@ -27,7 +17,6 @@ export const commentPost = async (req, res) =>{
 
     const newComment = new Comment({publication: publicationModel.title, comment});
 
-    newComment.username = user.username;
 
     await newComment.save();
 
@@ -44,18 +33,7 @@ export const commentPost = async (req, res) =>{
 export const commentPut = async(req, res = response) =>{
     const { id } = req.params;
     const { comment } = req.body;
-    const token = req.header('x-token');
 
-    const decoded = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
-    const userId = decoded.uid;
-
-    const user = await User.findById(userId);
-
-    if(!user){
-        return res.status(400).json({
-            msg: 'User not found'
-        })
-    }
 
     const commentBefore = await Comment.findById(id);
 
@@ -65,11 +43,6 @@ export const commentPut = async(req, res = response) =>{
         })
     }
 
-    if(commentBefore.username !== user.username){
-        return res.status(403).json({
-            msg: 'Username not found'
-        })
-    }
 
     const commentUpdate = await Comment.findByIdAndUpdate(id, { comment: comment }, { new: true });
 
@@ -83,30 +56,15 @@ export const commentPut = async(req, res = response) =>{
 
 export const commentDelete = async(req, res) => {
     const { id } = req.params;
-    const token = req.header('x-token');
     
-    const decoded = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
-    const userId = decoded.uid;
+ 
 
-    const user = await User.findById(userId);
-
-    if(!user){
-        return res.status(400).json({
-            msg: 'User not found'
-        })
-    }
 
     const commentBefore = await Comment.findById(id);
 
     if(!commentBefore){
         return res.status(400).json({
             msg: 'publication not found'
-        })
-    }
-
-    if(commentBefore.username !== user.username){
-        return res.status(403).json({
-            msg: 'Username not found'
         })
     }
 

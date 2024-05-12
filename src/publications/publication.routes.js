@@ -11,7 +11,7 @@ router.get("/", [validateJWT], publicationGet);
 
 router.post(
     "/",
-    [ validateJWT,
+    [ 
         check ("title", "The title is required").not().isEmpty(),
         check ("category", "The category is required").not().isEmpty(),
         check ("text", "The text is required").not().isEmpty(),
@@ -21,7 +21,7 @@ router.post(
 router.put(
     "/:id",
     [
-        validateJWT,
+       
         check("id", "it is not id validit").isMongoId(),
         check("id").custom(existingByIdPublication),
         validationFields
@@ -30,7 +30,6 @@ router.put(
 router.delete(
     "/:id",
     [
-        validateJWT,
         check("id", "it is not id validit").isMongoId(),
         check("id").custom(existingByIdPublication),
         validationFields

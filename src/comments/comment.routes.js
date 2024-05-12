@@ -10,7 +10,6 @@ const router = Router();
 router.post(
     "/",
     [
-        validateJWT,
         check("comment", "The comment is mandatory").not().isEmpty(),
         validationFields
     ], commentPost)
@@ -18,7 +17,6 @@ router.post(
 router.put(
     "/:id",
     [
-        validateJWT,
         check("id", "it is not id validit").isMongoId(),
         check("id").custom(existingByIdComment),
         validationFields
@@ -27,7 +25,6 @@ router.put(
 router.delete(
     "/:id",
     [
-        validateJWT,
         check("id", "it is not id validit").isMongoId(),
         check("id").custom(existingByIdComment),
         validationFields
