@@ -4,8 +4,8 @@ import Publication from "./publication.js";
 
 
 export const publicationPost = async(req, res) =>{
-    const {author, title, category, text, urlImage, urlProyect } = req.body;
-    const publication = new Publication({ author, title, category, text, urlImage, urlProyect});
+    const {author, title,  text, urlImage, urlProyect } = req.body;
+    const publication = new Publication({ author, title,  text, urlImage, urlProyect});
 
     await publication.save();
 
@@ -39,7 +39,7 @@ export const publicationGet = async(req, res) =>{
 
 export const putPublication = async(req, res = response) => {
     const { id } = req.params;
-    const {_id, author, comment, category, ...resto} = req.body;
+    const {_id, author, comment, ...resto} = req.body;
    ;
 
     if(!user){

@@ -76,3 +76,15 @@ export const commentDelete = async(req, res) => {
         commentBefore
     })
 }
+
+export const commentById = async (req, res) => {
+    const { id } = req.params; 
+
+    const comment = await Comment.findById(id);
+
+    res.status(200).json({
+        comment
+    })
+
+    
+}
