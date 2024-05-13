@@ -2,7 +2,7 @@ import { Router } from "express";
 import { check } from "express-validator";
 import { validationFields} from "../middlewares/validateFields.js";
 import { validateJWT } from "../middlewares/validateJWT.js";
-import { commentDelete, commentPost, commentPut } from "./comment.controllers.js";
+import { commentById, commentDelete, commentPost, commentPut } from "./comment.controllers.js";
 import { existingByIdComment } from "../helpers/db-validator.js";
 
 const router = Router();
@@ -14,6 +14,12 @@ router.post(
         validationFields
     ], commentPost)
 
+router.get(
+    "/:id",
+    [
+        check("id", "it is not id validit").isMongoId(),
+        validationFields
+    ], commentById)
 router.put(
     "/:id",
     [
