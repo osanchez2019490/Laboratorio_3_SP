@@ -17,7 +17,6 @@ export const publicationPost = async(req, res) =>{
 export const publicationGet = async(req, res) =>{
     const { limit, from} = req.query;
 
-
     const query = { state: true};
 
     const [total, publications] = await Promise.all([
