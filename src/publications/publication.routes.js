@@ -1,12 +1,15 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { deletePublication, publicationGet, publicationPost, putPublication } from "./publication.controller.js";
+import { deletePublication, publicationGet, publicationGetById, publicationPost, putPublication } from "./publication.controller.js";
 import { validationFields } from "../middlewares/validateFields.js";
 import {  existingByIdPublication } from "../helpers/db-validator.js";
 
 const router = Router();
 
 router.get("/",  publicationGet);
+
+router.get("/:id", [ check("id", "it is not id validit").isMongoId()], publicationGetById);
+
 
 router.post(
     "/",

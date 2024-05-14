@@ -36,6 +36,19 @@ export const publicationGet = async(req, res) =>{
     })
 }
 
+export const publicationGetById = async(req, res) =>{
+    const { id } = req.params;
+
+    const publications = await Publication.findById(id);
+
+    
+    res.status(200).json({
+        
+        publications
+    })
+}
+
+
 export const putPublication = async(req, res = response) => {
     const { id } = req.params;
     const {_id, author, comment, ...resto} = req.body;
